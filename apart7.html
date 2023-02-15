@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apart 7</title>
+    <script>
+        window.addEventListener("load", inicio, false);
+        function inicio() {
+            document.getElementById("convertir").addEventListener("click", convertir, false);
+            function convertir() {
+                valor = parseFloat(document.getElementById("valor1").value);
+                if (document.getElementById("temperatura1").value == "Celsius") {
+                    if (document.getElementById("temperatura2").value == "Celsius") {
+                        document.getElementById("valor2").value = valor;
+                    }
+                    else if (document.getElementById("temperatura2").value == "Kelvin") {
+                        document.getElementById("valor2").value = valor + 273.15;
+                    }
+                    else {
+                        document.getElementById("valor2").value = (valor * 9 / 5) + 32;
+                    }
+                }
+                else if (document.getElementById("temperatura1").value == "Kelvin") {
+                    if (document.getElementById("temperatura2").value == "Celsius") {
+                        document.getElementById("valor2").value = valor - 273.15;
+                    }
+                    else if (document.getElementById("temperatura2").value == "Kelvin") {
+                        document.getElementById("valor2").value = valor;
+                    }
+                    else {
+                        document.getElementById("valor2").value = (valor - 273.15) * 9 / 5 + 32;
+                    }
+                }
+                else {
+                    if (document.getElementById("temperatura2").value == "Celsius") {
+                        document.getElementById("valor2").value = (valor - 32) * 5 / 9;
+                    }
+                    else if (document.getElementById("temperatura2").value == "Kelvin") {
+                        document.getElementById("valor2").value = (valor - 32) * 5 / 9 + 273.15;
+                    }
+                    else {
+                        document.getElementById("valor2").value = valor;
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Script que convierte entre diferentes unidades</h2>
+    <label for="temperatura1"></label>
+    <select id="temperatura1">
+        <option value="Celsius" selected>Celsius</option>
+        <option value="Kelvin">Kelvin</option>
+        <option value="Fahrenheit">Fahrenheit</option>
+    </select>
+    <input type="number" id="valor1" value="0">
+    <br>
+    <br>
+    <label for="temperatura2"></label>
+    <select id="temperatura2">
+        <option value="Celsius">Celsius</option>
+        <option value="Kelvin">Kelvin</option>
+        <option value="Fahrenheit" selected>Fahrenheit</option>
+    </select>
+    <input type="number" id="valor2">
+    <br>
+    <br>
+    <input type="button" id="convertir" value="Convertir">
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Ejercicio5</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.addEventListener("load", inicio, false);
+        function inicio() {
+            var elementos = [];
+            document.getElementById("añadir").addEventListener("click", añadir, false);
+            document.getElementById("ordenar").addEventListener("click", ordenar, false);
+            document.getElementById("reiniciar").addEventListener("click", reiniciar, false);
+
+            function añadir() {
+                elementos.push(document.getElementById("cuadro").value);
+                document.getElementById("cuadro").value = "";
+                mostrar();
+            }
+            function mostrar() {
+                var areaCompleta = "";
+                for (x in elementos) {
+                    areaCompleta += elementos[x] + "\n";
+                }
+                document.getElementById("text1").value = areaCompleta;
+            }
+            function ordenar() {
+                elementos.sort();
+                var areaCompleta = "";
+                for (x in elementos) {
+                    areaCompleta += elementos[x] + "\n";
+                }
+                document.getElementById("text2").value = areaCompleta;
+            }
+            function reiniciar() {
+                document.getElementById("text1").value = "";
+                document.getElementById("text2").value = "";
+                document.getElementById("cuadro").value = "";
+                elementos = [];
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <input type="text" id="cuadro"><br>
+    <input type="button" id="añadir" value="Añadir elemento"><br>
+    <textarea id="text1" rows="30" cols="50"></textarea>
+    <textarea id="text2" rows="30" cols="50"></textarea><br>
+    <input type="button" id="ordenar" value="ordenar">
+    <input type="button" id="reiniciar" value="reiniciar">
+</body>
+
+</html>

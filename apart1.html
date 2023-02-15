@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apart 1</title>
+
+    <script>
+        window.addEventListener("load", inicio, false);
+
+        function inicio() {
+            document.getElementById("decremento").addEventListener("click", decrementa, false);
+            document.getElementById("incremento").addEventListener("click", incrementa, false);
+        }
+
+        function decrementa() {
+            let num = 0;
+            num = parseInt(document.getElementById("valor").value);
+            num--;
+            if (num < document.getElementById("min").value) {
+                alert("Has alcanzado el mínimo");
+            } else {
+                document.getElementById("valor").value = num;
+            }
+        }
+
+        function incrementa() {
+            let num = 0;
+            num = parseInt(document.getElementById("valor").value);
+            num++;
+            if (num > document.getElementById("max").value) {
+                alert("Has alcanzado el máximo");
+            } else {
+                document.getElementById("valor").value = num;
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <h1>Script que incrementa o decrementa el valor de un número</h1>
+    <form>
+        <p>Valor mínimo
+            <input type="text" value="0" id="min">
+
+            Valor máximo
+            <input type="text" value="10" id="max">
+        </p>
+        <p>
+            <input type="text" placeholder="Introduzca un valor" id="valor" value="">
+        </p>
+        <p>
+            <input type="button" value="🠸" id="decremento">
+            <input type="button" value="🠺" id="incremento">
+        </p>
+    </form>
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apart 5</title>
+    <script>
+        window.addEventListener("load",inicio,false);
+        var arrayTotal=[];
+        function inicio(){
+            document.getElementById("anade").addEventListener("click",anade,false);
+            document.getElementById("ordena").addEventListener("click",ordenar,false);
+        } 
+        function anade(){
+            var texto = document.getElementById("cuadro1").value;
+            arrayTotal.push(document.getElementById("cuadro1").value);
+            document.getElementById("area1").value+=texto;
+            document.getElementById("area1").value+='\n';
+        }
+        function ordenar(){
+            arrayTotal.sort();
+            for(let i = 0; i<arrayTotal.length; i++){
+                document.getElementById("area2").value+=arrayTotal[i];
+                document.getElementById("area2").value+='\n';
+            }
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <input type="text" id="cuadro1">
+        <br>
+        <input type="button" id="anade" value="Añadir elemento">
+        <br/>
+        <textarea rows="25" cols="50" id="area1"></textarea>
+        <textarea rows="25" cols="50" id="area2"></textarea>
+        <br/>
+        <input type="button" id="ordena" value="Ordenar">
+        <input type="reset" id="resetea" value="Reiniciar">
+    </form>
+</body>
+</html>

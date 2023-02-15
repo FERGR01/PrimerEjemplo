@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apart 2</title>
+
+    <script>
+        window.addEventListener("load", inicio, false);
+
+        function inicio() {
+            let botones = document.getElementsByTagName("button");
+            for (let i = 0; i < botones.length; i++) {
+                botones[i].addEventListener("click", function () { mostrarTexto(this); });
+            }
+        }
+
+        function mostrarTexto(elem) {
+            document.title = elem.value;
+        }
+    </script>
+
+</head>
+
+<body>
+    <h1>Script que cambia el título del documento</h1>
+    <button value="Boton 1">Boton 1</button>
+    <button value="Boton 2">Boton 2</button>
+    <button value="Boton 3">Boton 3</button>
+    <button value="Boton 4">Boton 4</button>
+    <button value="Boton 5">Boton 5</button>
+</body>
+
+</html>

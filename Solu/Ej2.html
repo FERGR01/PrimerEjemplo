@@ -1,0 +1,56 @@
+<!--Crear un script que contenga un formulario con cinco botones. Al pulsar uno de ellos, 
+cambiará el título del documento actual poniendo como título el "value" del botón pulsado.-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Ejercicio2</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.addEventListener("load", inicio, false);
+
+        function inicio() {
+            document.getElementById("boton1").addEventListener("click", cambiarTitulo1, false);
+            document.getElementById("boton2").addEventListener("click", cambiarTitulo2, false);
+            document.getElementById("boton3").addEventListener("click", cambiarTitulo3, false);
+            document.getElementById("boton4").addEventListener("click", cambiarTitulo4, false);
+            document.getElementById("boton5").addEventListener("click", cambiarTitulo5, false);
+
+            function cambiarTitulo1() {
+                document.title = "Botón 1"
+            }
+
+            function cambiarTitulo2() {
+                document.title = "Botón 2"
+            }
+
+            function cambiarTitulo3() {
+                document.title = "Botón 3"
+            }
+
+            function cambiarTitulo4() {
+                document.title = "Botón 4"
+            }
+
+            function cambiarTitulo5() {
+                document.title = "Botón 5"
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <h1>Script que cambia el título del documento</h1>
+    <form>
+        <input type="button" value="Boton 1" id="boton1">
+        <input type="button" value="Boton 2" id="boton2">
+        <input type="button" value="Boton 3" id="boton3">
+        <input type="button" value="Boton 4" id="boton4">
+        <input type="button" value="Boton 5" id="boton5">
+    </form>
+</body>
+
+</html>

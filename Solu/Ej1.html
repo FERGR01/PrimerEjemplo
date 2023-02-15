@@ -1,0 +1,72 @@
+<!--Crear un formulario con un cuadro de texto y dos botones con etiquetas <- y ->.
+Al pulsar el primer botón se incrementará en uno el número escrito en el cuadro de texto,
+y al pulsar el segundo botón se decrementará. Añadir dos cuadros de texto más para indicar 
+los límites superior e inferior que debe alcanzar el número, y si se intentan sobrepasar 
+se indicará con un mensaje.-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Ejercicio1</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.addEventListener("load",inicio,false);
+
+        function inicio(){
+            document.getElementById("disminuir").addEventListener("click",disminuir,false);
+            document.getElementById("aumentar").addEventListener("click",aumento,false);
+        }
+        function disminuir(){
+            let num=0;
+            num = parseInt(document.getElementById("valor").value);
+            num--;
+            if(num<document.getElementById("min").value){
+                alert("Has alcanzado el mínimo.")
+            }else{
+                document.getElementById("valor").value=num;
+            }
+        }
+        function aumento() {
+            let num = 0;
+            num = parseInt(document.getElementById("valor").value);
+            num++;
+            if (num > document.getElementById("max").value) {
+                alert("Has alcanzado el máximo.");
+            } else {
+                document.getElementById("valor").value = num;
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <h1>Script que inclementa o decrementa el valor de un número</h1>
+    <form method="post" id="miFormulario">
+        <table>
+            <tr>
+                <td>Valor minimo:</td>
+                <td>
+                    <input type="text" value="0" id="min"/>
+                </td>
+                <td>Valor máximo:</td>
+                <td>
+                    <input type="text" value="10" id="max"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Introduzca un valor: </td>
+                <td>
+                    <input type="text" name="valor" id="valor" min="0" max="10" title="El valor debe ser entre 0 y 10" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" value="<-" id="disminuir" />
+                    <input type="button" value="->" id="aumentar" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

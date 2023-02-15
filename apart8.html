@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Apart 8</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.addEventListener("load", inicio, false);
+        function inicio() {
+            var empezar;
+            document.getElementById("iniciar").addEventListener("click", iniciar, false);
+            document.getElementById("detener").addEventListener("click", detener, false);
+
+            function contarTiempo() {
+                var tiempo = document.getElementById("temporizador").value;
+                var separarTiempo = tiempo.split(":");
+                var horas = parseInt(separarTiempo[0]);
+                var minutos = parseInt(separarTiempo[1]);
+                var segundos = parseInt(separarTiempo[2]);
+                var horasFormat;
+                var minutosFormat;
+                var segundosFormat;
+
+                if (segundos != 0) {
+                    segundos = segundos - 1;
+                }
+                else {
+                    if (minutos != 0) {
+                        segundos = 59;
+                        minutos = minutos - 1;
+                    }
+                    else {
+                        if (horas != 0) {
+                            minutos = 59;
+                            horas = horas - 1;
+                        }
+                        else {
+                            alert("El tiempo se ha terminado.");
+                            window.close();
+                            debugger;
+                            detener();
+                        }
+                    }
+                }
+                segundosFormat = ("0" + segundos).slice(-2);
+                minutosFormat = ("0" + minutos).slice(-2);
+                horasFormat = ("0" + horas).slice(-2);
+                document.getElementById("temporizador").value = horasFormat + ":" + minutosFormat + ":" + segundosFormat;
+            }
+            function iniciar() {
+                empezar = setInterval(contarTiempo, 1000);
+            }
+            function detener() {
+                clearInterval(empezar);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Script que muestra un temporizador</h2>
+    <h2>Cronometro</h2>
+
+    Introduce el tiempo(hh:mm:ss):<input type="text" id="temporizador">
+    <br>
+    <input type="button" id="iniciar" value="Iniciar">
+    <input type="button" id="detener" value="Detener">
+</body>
+
+</html>

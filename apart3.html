@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apart 3</title>
+
+    <script>
+        window.addEventListener("load", inicio, false);
+
+        function inicio(){
+            document.getElementById("cuadro1").addEventListener("keyup",escribir,false);
+        }
+
+        function escribir(){
+            var texto= document.getElementById("cuadro1").value;
+            document.getElementById("cuadro2").value=(texto);
+        }
+
+    </script>
+
+</head>
+<body>
+    <h1>Script que copia el contenido de un cuadro de texto en otro mientras se escribe</h1>
+    <form>
+        <input type="text" id="cuadro1">
+        <br/>
+        <input type="text" id="cuadro2">
+    </form>
+</body>
+</html>

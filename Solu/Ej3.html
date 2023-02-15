@@ -1,0 +1,25 @@
+<!--Crear un formulario que contenga dos cuadros de texto. Al cambiar el contenido del primero de ellos, 
+éste se copiará automáticamente en el segundo.-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Ejercicio3</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        //Usamos "keyup" porque si no la primera letra que escribamos no la registra (porque ocurre antes de que se active el evento).
+        window.addEventListener("keyup",copiar,false);
+
+        function copiar(){
+            var contenido = document.getElementById("text1").value;
+            document.getElementById("text2").value = contenido;
+        }
+    </script>
+</head>
+<body>
+    <h2>Script que copia el contenido de un cuadro de texto en otro mientras se escribe</h2>
+    <input type="text" id="text1"><br>
+    <input type="text" id="text2">
+</body>
+</html>
